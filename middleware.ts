@@ -20,7 +20,7 @@ export async function middleware(request: NextRequest) {
   console.log('AUTH_SECRET in middleware:', process.env.NEXT_PUBLIC_AUTH_SECRET);
 
   const token = await getToken({
-    secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
+    secret: '936dfb834fa4e6eb307a0c10deb70e84',
     req: request,
     secureCookie: !isDevelopmentEnvironment,
   });
