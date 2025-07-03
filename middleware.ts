@@ -17,10 +17,10 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  console.log('AUTH_SECRET in middleware:', process.env.AUTH_SECRET);
+  console.log('AUTH_SECRET in middleware:', process.env.NEXT_PUBLIC_AUTH_SECRET);
 
   const token = await getToken({
-    secret: process.env.AUTH_SECRET,
+    secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
     req: request,
     secureCookie: !isDevelopmentEnvironment,
   });
