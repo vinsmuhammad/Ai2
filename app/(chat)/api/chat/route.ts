@@ -220,11 +220,14 @@ export async function POST(request: Request) {
       return new Response(stream);
     }
   } catch (error) {
-    if (error instanceof ChatSDKError) {
-      return error.toResponse();
-    }
+  if (error instanceof ChatSDKError) {
+    return error.toResponse();
   }
+
+  console.error('Unexpected error:', error);
+  return new Response('Internal Server Error', { status: 500 });
 }
+
 
 export async function DELETE(request: Request) {
   const { searchParams } = new URL(request.url);
