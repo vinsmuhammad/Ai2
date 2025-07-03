@@ -16,6 +16,7 @@ const runMigrate = async () => {
     max: 1,
     ssl: 'require',
   });
+  
   const db = drizzle(connection);
 
   console.log('⏳ Running migrations...');
